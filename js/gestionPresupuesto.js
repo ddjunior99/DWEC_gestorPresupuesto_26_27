@@ -101,10 +101,11 @@ function CrearGasto(descripcion, valor, fecha, ...etiqueta) {
         }  
     }
 
-    this.mostarGastosCompleto = function() {
-
-        let mensaje = "Gasto correspondiente a " + this.descripcion + " con valor " + this.valor + " €.\nFecha: " + this.fecha.toLocaleString()  + 
-        "\nEtiquetas: \n-" + this.etiquetas.join("- \n");
+    this.mostrarGastoCompleto = function() {
+        let fechaFormateada = new Date(this.fecha);
+        let mensaje = "Gasto correspondiente a " + this.descripcion + " con valor " + this.valor + 
+        " €.\nFecha: " + fechaFormateada.toLocaleString()  + 
+        "\nEtiquetas:\n- " + this.etiquetas.join("\n- ") + "\n";
         return mensaje;
     }
 }
