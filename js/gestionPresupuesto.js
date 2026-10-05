@@ -126,7 +126,13 @@ function listarGastos() {
 
 };
 
-function calcularTotalGastos() {};
+function calcularTotalGastos() {
+    let totalGastos = 0;
+    for (let i = 0; i < gastos.length; i++) {
+        totalGastos += gastos[i].valor;
+    }
+    return totalGastos;
+};
 
 function calcularBalance() {};
 
