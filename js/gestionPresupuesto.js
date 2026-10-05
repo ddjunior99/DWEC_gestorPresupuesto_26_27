@@ -39,7 +39,7 @@ function CrearGasto(descripcion, valor, fecha, ...etiqueta) {
     else {
         this.etiquetas = Array.from(etiqueta);
     }
-
+    
     if (fecha === undefined || fecha === null || fecha === "") {
         this.fecha = Date.now();
     }else {
@@ -82,6 +82,23 @@ function CrearGasto(descripcion, valor, fecha, ...etiqueta) {
         else{
             this.valor = nuevovalor;
         }
+    }
+
+    this.anyadirEtiqueta = function(...nuevaEtiqueta) {
+        if (nuevaEtiqueta === undefined || nuevaEtiqueta === null || nuevaEtiqueta === "") {
+            this.etiquetas = this.etiquetas;
+        }
+        else {
+            while (nuevaEtiqueta.length > 0) {
+                let i = nuevaEtiqueta.length - 1;
+
+                if (this.etiquetas.includes(nuevaEtiqueta[i])) {
+                    this.etiquetas.Array.push(nuevaEtiqueta[i]);
+                }
+
+                nuevaEtiqueta.length--;
+            }
+        }  
     }
 }
 
