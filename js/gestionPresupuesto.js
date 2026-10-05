@@ -84,7 +84,7 @@ function CrearGasto(descripcion, valor, fecha, ...etiqueta) {
         }
     }
 
-    this.anyadirEtiqueta = function(...nuevaEtiqueta) {
+    this.anyadirEtiquetas = function(...nuevaEtiqueta) {
         if (nuevaEtiqueta === undefined || nuevaEtiqueta === null || nuevaEtiqueta === "") {
             this.etiquetas = this.etiquetas;
         }
@@ -92,13 +92,20 @@ function CrearGasto(descripcion, valor, fecha, ...etiqueta) {
             while (nuevaEtiqueta.length > 0) {
                 let i = nuevaEtiqueta.length - 1;
 
-                if (this.etiquetas.includes(nuevaEtiqueta[i])) {
+                if (!this.etiquetas.includes(nuevaEtiqueta[i])) {
                     this.etiquetas.Array.push(nuevaEtiqueta[i]);
                 }
 
                 nuevaEtiqueta.length--;
             }
         }  
+    }
+
+    this.mostarGastosCompleto = function() {
+
+        let mensaje = "Gasto correspondiente a " + this.descripcion + " con valor " + this.valor + " €.\nFecha: " + this.fecha.toLocaleString()  + 
+        "\nEtiquetas: \n-" + this.etiquetas.join("- \n");
+        return mensaje;
     }
 }
 
