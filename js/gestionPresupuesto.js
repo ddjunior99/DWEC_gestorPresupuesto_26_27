@@ -3,7 +3,7 @@
 
 // TODO: Variable global
 let presupuesto = 0;
-let gasto = [];
+let gastos = [];
 let idGasto = 0;
 
 function actualizarPresupuesto(nuevoPresupuesto) {
@@ -65,11 +65,22 @@ function CrearGasto(descripcion, valor) {
     }
 }
 
-function anyadirGasto(gasto) {};
+function anyadirGasto(gasto) {
+
+};
 
 function borrarGasto(id) {};
 
-function listarGastos() {};
+function listarGastos() {
+
+    if (gastos.length === 0) {
+        return [];
+    }
+    else {
+        return gastos;
+    }
+
+};
 
 function calcularTotalGastos() {};
 
