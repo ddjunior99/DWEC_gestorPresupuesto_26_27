@@ -103,7 +103,9 @@ function CrearGasto(descripcion, valor, fecha, ...etiqueta) {
 }
 
 function anyadirGasto(gasto) {
-
+    gasto.idGasto = idGasto;
+    idGasto++;
+    gastos.push(gasto);
 };
 
 function borrarGasto(id) {};
