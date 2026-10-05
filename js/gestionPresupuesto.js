@@ -9,17 +9,14 @@ function actualizarPresupuesto(nuevoPresupuesto) {
     // TODO
     if (typeof nuevoPresupuesto === "number" && nuevoPresupuesto >= 0) 
     {
-        presupuesto = nuevoPresupuesto;
-        return presupuesto;     
+        presupuesto = nuevoPresupuesto;   
     }
     else
     {
        console.log("El presupuesto no puede ser negativo");
-        presupuesto = -1;
-        return presupuesto;
+        nuevoPresupuesto = -1;      
     }
-    
-
+    return nuevoPresupuesto;
 }
 
 function mostrarPresupuesto() {
@@ -28,24 +25,25 @@ function mostrarPresupuesto() {
     return mensaje;
 }
 
-function CrearGasto(descripcion, cifra) {
+function CrearGasto(descripcion, valor) {
     // TODO
     //Propiedades
 
     this.descripcion = descripcion;
+    valor = parseFloat(valor); 
     
-    if (cifra < 0) 
+    if (valor < 0 || isNaN(valor)) 
     {
-        this.cifra = 0;
+        this.valor = 0;
     }
     else{
-        this.cifra = cifra;
+        this.valor = valor;
     }
 
     //Métodos
 
     this.mostrarGasto = function() {
-        let mensaje = "Gasto correspondiente a " + this.descripcion + " con valor " + this.cifra + " €";
+        let mensaje = "Gasto correspondiente a " + this.descripcion + " con valor " + this.valor + " €";
         return mensaje;
     }
 
@@ -53,13 +51,15 @@ function CrearGasto(descripcion, cifra) {
         this.descripcion = nuevaDescripcion;
     }
 
-    this.actualizarCifra = function(nuevaCifra) {
-        if (nuevaCifra < 0) 
+    this.actualizarValor = function(nuevovalor) {
+        nuevovalor = parseFloat(nuevovalor);
+        
+        if (nuevovalor < 0 || isNaN(nuevovalor)) 
         {
-            this.cifra = this.cifra;
+            this.valor = this.valor;
         }
         else{
-            this.cifra = nuevaCifra;
+            this.valor = nuevovalor;
         }
     }
 }
