@@ -26,12 +26,32 @@ function mostrarPresupuesto() {
     return mensaje;
 }
 
-function CrearGasto(descripcion, valor) {
+function CrearGasto(descripcion, valor, fecha, ...etiqueta) {
     // TODO
     //Propiedades
 
     this.descripcion = descripcion;
-    valor = parseFloat(valor); 
+    this.valor = parseFloat(valor);
+    
+    if (etiqueta === undefined || etiqueta === null || etiqueta === "") {
+        this.etiquetas = [];
+    }
+    else {
+        this.etiquetas = Array.from(etiqueta);
+    }
+
+    if (fecha === undefined || fecha === null || fecha === "") {
+        this.fecha = Date.now();
+    }else {
+        let Fecha = Date.parse(fecha);
+
+        if (isNaN(Fecha)) {
+            this.fecha = Date.now();
+        }
+        else {
+            this.fecha = Fecha;
+        }
+    }
     
     if (valor < 0 || isNaN(valor)) 
     {
