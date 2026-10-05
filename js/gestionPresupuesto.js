@@ -108,7 +108,12 @@ function anyadirGasto(gasto) {
     gastos.push(gasto);
 };
 
-function borrarGasto(id) {};
+function borrarGasto(id) {
+
+    if (gastos.conteins(id)) {
+        gastos.pop(id);
+    }
+};
 
 function listarGastos() {
 
