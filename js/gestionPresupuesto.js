@@ -3,7 +3,8 @@
 
 // TODO: Variable global
 let presupuesto = 0;
-
+let gasto = [];
+let idGasto = 0;
 
 function actualizarPresupuesto(nuevoPresupuesto) {
     // TODO
@@ -53,7 +54,7 @@ function CrearGasto(descripcion, valor) {
 
     this.actualizarValor = function(nuevovalor) {
         nuevovalor = parseFloat(nuevovalor);
-        
+
         if (nuevovalor < 0 || isNaN(nuevovalor)) 
         {
             this.valor = this.valor;
