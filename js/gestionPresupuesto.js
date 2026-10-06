@@ -89,14 +89,11 @@ function CrearGasto(descripcion, valor, fecha, ...etiqueta) {
             this.etiquetas = this.etiquetas;
         }
         else {
-            while (nuevaEtiqueta.length > 0) {
-                let i = nuevaEtiqueta.length - 1;
-
-                if (!this.etiquetas.includes(nuevaEtiqueta[i])) {
-                    this.etiquetas.Array.push(nuevaEtiqueta[i]);
+            for (let e of nuevaEtiqueta) {
+                
+                if (!this.etiquetas.includes(e)) {
+                    this.etiquetas.push(e);
                 }
-
-                nuevaEtiqueta.length--;
             }
         }  
     }
@@ -108,6 +105,31 @@ function CrearGasto(descripcion, valor, fecha, ...etiqueta) {
         "\nEtiquetas:\n- " + this.etiquetas.join("\n- ") + "\n";
         return mensaje;
     }
+
+    this.actualizarFecha = function(nuevaFecha) {
+        if (nuevaFecha === undefined || nuevaFecha === null || nuevaFecha === "") {
+            this.fecha = this.fecha;
+        }
+        else {
+            let Fecha = Date.parse(nuevaFecha);
+
+            if (isNaN(Fecha)) {
+                this.fecha = this.fecha;
+            }
+            else {
+                this.fecha = Fecha;
+            }
+        }
+    }
+
+    this.borrarEtiquetas = function(...etiquetas) {
+        for (let etiqueta of etiquetas) {
+            let index = this.etiquetas.indexOf(etiqueta);
+            if (index !== -1) {
+                this.etiquetas.splice(index, 1);
+            }
+        }
+    }
 }
 
 function anyadirGasto(gasto) {
@@ -118,7 +140,7 @@ function anyadirGasto(gasto) {
 
 function borrarGasto(id) {
 
-    if (gastos.conteins(id)) {
+    if (gastos.includes(id)) {
         gastos.pop(id);
     }
 };
