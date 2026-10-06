@@ -133,15 +133,16 @@ function CrearGasto(descripcion, valor, fecha, ...etiqueta) {
 }
 
 function anyadirGasto(gasto) {
-    gasto.idGasto = idGasto;
+    gasto.id = idGasto;
     idGasto++;
     gastos.push(gasto);
 };
 
 function borrarGasto(id) {
+    let index = gastos.findIndex(gasto => gasto.id === id);
+    if (index !== -1) {
+        gastos.splice(index, 1);
 
-    if (gastos.includes(id)) {
-        gastos.pop(id);
     }
 };
 
