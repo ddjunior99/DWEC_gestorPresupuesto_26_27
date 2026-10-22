@@ -230,7 +230,7 @@ function filtrarGastos({ fechaDesde, fechaHasta, valorMinimo, valorMaximo, descr
         if (!gasto.descripcion.toLowerCase().includes(escrito)) {
             return false;
         }
-       }
+       }    
 
        if (etiquetasTiene !== undefined){
         let etiquetasBuscadas = etiquetasTiene.map(etiqueta => etiqueta.toLowerCase());
@@ -254,7 +254,6 @@ function filtrarGastos({ fechaDesde, fechaHasta, valorMinimo, valorMaximo, descr
                   
         return acc;
     }, {});
-
 }
 
     /*function agruparGastos(periodo, etiquetas = [], fechaDesde, fechaHasta) {
